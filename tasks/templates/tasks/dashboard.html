@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2>Welcome, {{ user.username }}!</h2>
+
+{% if tasks %}
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <strong>{{ task.title }}</strong> (Due: {{ task.due_date }})<br>
+                <a href="{% url 'task_detail' task.pk %}">View</a> |
+                <a href="{% url 'edit_task' task.pk %}">Edit</a> |
+                <a href="{% url 'delete_task' task.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No tasks yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Task Manager{% endblock %}</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            padding: 15px 20px;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 10px 0 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        header nav ul li {
+            display: inline;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #e0e0e0;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+            color: #555;
+            border-top: 1px solid #ccc;
+            margin-top: 40px;
+        }
+
+        a {
+            color: #0056b3;
+        }
+
+        a:hover {
+            color: #004494;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'dashboard' %}" style="text-decoration: none; color: inherit;">Task Manager</a></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'create_task' %}">Create Task</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Task Manager</p>
+    </footer>
+</body>
+</html>
